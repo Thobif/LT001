@@ -6,6 +6,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:abc/menu/menudetail.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
+import '../menu/formfood.dart';
+
 class FoodScreen extends StatefulWidget {
   final String userKey;
 
@@ -24,7 +26,7 @@ class _FoodScreenState extends State<FoodScreen> {
     _restaurantListFuture = _fetchRestaurants();
   }
 
-   void _navigateToCamera(BuildContext context) {
+  void _navigateToCamera(BuildContext context) {
     Navigator.push(
       context,
       MaterialPageRoute(
@@ -33,7 +35,14 @@ class _FoodScreenState extends State<FoodScreen> {
     );
   }
 
-  
+  void _navigateToFormfood(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => FormFood(userKey: widget.userKey),
+      ),
+    );
+  }
 
   Future<List<Restaurant>> _fetchRestaurants() async {
     final querySnapshot =
@@ -48,25 +57,26 @@ class _FoodScreenState extends State<FoodScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     appBar: AppBar(
-  title: Text('LiveWell'),
-  backgroundColor: Colors.green,
-  actions: [
-
-    IconButton(
-      icon: Icon(Icons.camera_alt),
-      onPressed: () => _navigateToCamera(context),
-    ),
-      
-  ],
-),
+      appBar: AppBar(
+        title: Text('LiveWell'),
+        backgroundColor: Colors.green,
+        actions: [
+          IconButton(
+            icon: Icon(Icons.camera_alt),
+            onPressed: () => _navigateToCamera(context),
+          ),
+          IconButton(
+            icon: Icon(Icons.food_bank_outlined),
+            onPressed: () => _navigateToFormfood(context),
+          ),
+        ],
+      ),
       body: NestedScrollView(
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
           return [
             SliverAppBar(
               expandedHeight: 200.0,
               flexibleSpace: FlexibleSpaceBar(
-                
                 background: GoogleMap(
                   initialCameraPosition: CameraPosition(
                     target: LatLng(13.285950554812402, 100.92557594699406),

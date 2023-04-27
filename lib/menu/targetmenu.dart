@@ -75,6 +75,15 @@ class TargetMenu extends StatelessWidget {
                 _submitOrder(context);
               },
             ),
+            ElevatedButton(
+              child: Text('Cancel'),
+              style: ElevatedButton.styleFrom(
+                primary: Colors.red,
+              ),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
           ],
         ),
       ),

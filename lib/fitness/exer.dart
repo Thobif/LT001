@@ -2,9 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class calKcal extends StatefulWidget {
-  calKcal({Key? key, required this.title}) : super(key: key);
-
   final String title;
+  final String userKey; // ประกาศตัวแปร userKey ในหน้าจอ calKcal
+
+  calKcal({required this.title, required this.userKey});
 
   @override
   _calKcalState createState() => _calKcalState();
@@ -14,21 +15,33 @@ class _calKcalState extends State<calKcal> {
   final _formKey = GlobalKey<FormState>();
   TextEditingController _calorieController = TextEditingController();
   FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  DateTime getDateOnly(DateTime dateTime) {
+    return DateTime(dateTime.year, dateTime.month, dateTime.day);
+  }
 
   void _saveCalorie() async {
     if (_formKey.currentState!.validate()) {
       int calories = int.parse(_calorieController.text);
       DateTime now = DateTime.now(); // รับวันที่และเวลาปัจจุบัน
+      DateTime dateOnly =
+          getDateOnly(now); // แปลงเป็นวันที่เท่านั้นโดยตัดเวลาออก
+
+      DocumentReference userRef =
+          FirebaseFirestore.instance.collection('user').doc(widget.userKey);
 
       // Save to Firestore
       await _firestore.collection('exer').add({
         'exer_cal': calories,
-        'date': now, // เพิ่มวันที่และเวลาลงใน field "date"
+        'date': dateOnly, // เพิ่มวันที่เท่านั้นลงใน field "date"
+        'number': userRef,
       });
 
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text('บันทึกข้อมูลเรียบร้อยแล้ว')));
       _calorieController.clear();
+
+      Navigator.pop(
+          context, widget.userKey); // ส่งค่า userKey กลับไปยัง FitnessScreen
     }
   }
 

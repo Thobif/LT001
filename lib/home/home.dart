@@ -1,6 +1,7 @@
 import 'package:abc/cameara/camera.dart';
 import 'package:abc/fitness/fitnesspage.dart';
 import 'package:abc/food/food_screen.dart';
+import 'package:abc/home/date.dart';
 import 'package:abc/menu/menudetail.dart';
 import 'package:flutter/material.dart';
 import 'package:abc/Edit/profile.dart';
@@ -8,6 +9,7 @@ import 'dart:math';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
 import 'package:abc/home/history2.dart';
+import 'history3.dart';
 
 class HomeScreen extends StatefulWidget {
   final String userKey;
@@ -143,18 +145,33 @@ class _HomePageState extends State<HomeScreen> {
     );
   }
 
-  void _navigateToHistoryPage(BuildContext context) {
+  void _navigateTohistory(BuildContext context) {
     DateTime currentDate = DateTime.now();
-    DateTime previousDate = currentDate.subtract(Duration(days: 1));
-    DateTime previousDateWithoutTime =
-        DateTime(previousDate.year, previousDate.month, previousDate.day);
+    DateTime currentDateWithoutTime =
+        DateTime(currentDate.year, currentDate.month, currentDate.day);
 
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => HistoryPage2(
+        builder: (context) => HistoryPage3(
           userKey: widget.userKey,
-          currentDateWithoutTime: previousDateWithoutTime,
+          currentDateWithoutTime: currentDateWithoutTime,
+        ),
+      ),
+    );
+  }
+
+  void _navigateToDatePage(BuildContext context) {
+    DateTime currentDate = DateTime.now();
+    DateTime currentDateWithoutTime =
+        DateTime(currentDate.year, currentDate.month, currentDate.day);
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => DatePage(
+          userKey: widget.userKey,
+          currentDateWithoutTime: currentDateWithoutTime,
         ),
       ),
     );
@@ -163,27 +180,29 @@ class _HomePageState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-  title: Text('LiveWell'),
-  backgroundColor: Colors.green,
-  actions: [
-
-    IconButton(
-      icon: Icon(Icons.account_circle),
-      onPressed: () => _navigateToProfile(context),
-    ),
-      IconButton(
-        icon: Icon(Icons.restaurant_menu),
-        onPressed: () => _navigateToFood(context),
+      appBar: AppBar(
+        title: Text('LiveWell'),
+        backgroundColor: Colors.green,
+        actions: [
+          IconButton(
+            icon: Icon(Icons.account_circle),
+            onPressed: () => _navigateToProfile(context),
+          ),
+          IconButton(
+            icon: Icon(Icons.restaurant_menu),
+            onPressed: () => _navigateToFood(context),
+          ),
+          IconButton(
+            icon: Icon(Icons.fitness_center),
+            onPressed: () => _navigateToFitness(context),
+          ),
+          IconButton(
+            icon: Icon(Icons.history),
+            onPressed: () => _navigateTohistory(context),
+          ),
+        ],
       ),
-       IconButton(
-        icon: Icon(Icons.fitness_center),
-        onPressed: () => _navigateToFitness(context),
-      ),
-  ],
-),
       body: Column(
-        
         children: [
           Padding(
             padding: const EdgeInsets.all(16.0),
@@ -196,7 +215,7 @@ class _HomePageState extends State<HomeScreen> {
                     IconButton(
                       icon: Icon(Icons.arrow_back),
                       onPressed: () {
-                        _navigateToHistoryPage(context);
+                        _navigateToDatePage(context);
                       },
                     ),
                     Text(
@@ -244,7 +263,6 @@ class _HomePageState extends State<HomeScreen> {
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
-                        
                       ),
                     ],
                   ),

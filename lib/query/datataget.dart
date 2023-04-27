@@ -81,6 +81,9 @@ class _TargetPageState extends State<TargetPage> {
         TG_pro = 2.2 * lbm * 4;
         TG_fat = (TG_cal - TG_pro) / 4.0;
         TG_carb = (TG_cal - TG_pro) - TG_fat;
+
+        TG_fat = TG_fat / 2;
+        TG_pro = TG_pro + TG_fat;
       });
       saveTargetData();
     } else {

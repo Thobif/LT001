@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\fluttertest\\live_well\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
+            "outputFile": "C:\\Users\\Admin\\Desktop\\FT\\Livewell-New\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\df986c4a2051c2ff33c412eab3a1cd4f\\transformed\\appcompat-1.5.1\\res\\values-land\\values-land.xml",
+                    "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-3\\df986c4a2051c2ff33c412eab3a1cd4f\\transformed\\appcompat-1.5.1\\res\\values-land\\values-land.xml",
                     "from": {
                         "startLines": "2,3,4",
                         "startColumns": "4,4,4",

@@ -36,9 +36,9 @@ class TargetFood extends StatelessWidget {
         FirebaseFirestore.instance.collection('result');
     await result.add({
       'R_cal': totalKcal,
-      'R_fat': totalFat*9,
-      'R_carb': totalCarb*4,
-      'R_pro': totalPro*4,
+      'R_fat': totalFat * 9,
+      'R_carb': totalCarb * 4,
+      'R_pro': totalPro * 4,
       'date': DateTime.now(),
       'food_ID': foodKey,
       'phone': userRef,
@@ -60,7 +60,7 @@ class TargetFood extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Target Food'),
+        title: Text('Target Food '),
       ),
       body: Center(
         child: Column(
@@ -75,6 +75,15 @@ class TargetFood extends StatelessWidget {
               child: Text('Submit order'),
               onPressed: () {
                 _submitOrder(context);
+              },
+            ),
+            ElevatedButton(
+              child: Text('Cancel'),
+              style: ElevatedButton.styleFrom(
+                primary: Colors.red,
+              ),
+              onPressed: () {
+                Navigator.pop(context);
               },
             ),
           ],

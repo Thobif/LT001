@@ -1,4 +1,3 @@
-import 'package:abc/home/navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:abc/home/home.dart';
@@ -82,6 +81,8 @@ class _ResultPageWidgetState extends State<ResultPageWidget> {
         TG_pro = 2.2 * lbm * 4;
         TG_fat = (TG_cal - TG_pro) / 4.0;
         TG_carb = (TG_cal - TG_pro) - TG_fat;
+        TG_fat = TG_fat / 2;
+        TG_pro = TG_pro + TG_fat;
       });
       saveTargetData();
     } else {
@@ -100,27 +101,27 @@ class _ResultPageWidgetState extends State<ResultPageWidget> {
     int int_TG_pro = TG_pro.round();
     DateTime currentDate = DateTime.now();
     DateTime currentDateWithoutTime =
-      DateTime(currentDate.year, currentDate.month, currentDate.day);
+        DateTime(currentDate.year, currentDate.month, currentDate.day);
 
     // Reference user document by userKey
-    DocumentReference userRef = 
+    DocumentReference userRef =
         FirebaseFirestore.instance.collection('user').doc(widget.userKey);
 
     // Check if the 'phone' field in the target collection matches the userKey
-  QuerySnapshot querySnapshot = await targets
-      .where('phone', isEqualTo: userRef)
-      .where('date', isEqualTo: currentDateWithoutTime)
-      .get();
+    QuerySnapshot querySnapshot = await targets
+        .where('phone', isEqualTo: userRef)
+        .where('date', isEqualTo: currentDateWithoutTime)
+        .get();
 
-  // If the 'phone' field matches the userKey, navigate to HomePage without saving target data
-  if (querySnapshot.docs.isNotEmpty) {
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(
-          builder: (context) => HomeScreen(userKey: widget.userKey)),
-    );
-    return;
-  }
+    // If the 'phone' field matches the userKey, navigate to HomePage without saving target data
+    if (querySnapshot.docs.isNotEmpty) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+            builder: (context) => HomeScreen(userKey: widget.userKey)),
+      );
+      return;
+    }
 
     // Save target data
     await targets.add({
@@ -134,32 +135,28 @@ class _ResultPageWidgetState extends State<ResultPageWidget> {
     CollectionReference result =
         FirebaseFirestore.instance.collection('result');
 
-
-
-await result.add({
-  'R_cal': R_cal,
-  'R_carb': R_carb,
-  'R_fat': R_fat,
-  'R_pro': R_pro,
-  'date': currentDate,
-  'phone': userRef, // Save userRef in 'phone' field
-  'food_ID': null, // Set food_ID to null first
-  'quantity': null,
-});
-
+    await result.add({
+      'R_cal': R_cal,
+      'R_carb': R_carb,
+      'R_fat': R_fat,
+      'R_pro': R_pro,
+      'date': currentDate,
+      'phone': userRef, // Save userRef in 'phone' field
+      'food_ID': null, // Set food_ID to null first
+      'quantity': null,
+    });
 
     // Navigate to HomePage and pass userKey
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-          builder: (context) => HomePage(userKey: widget.userKey)),
+          builder: (context) => HomeScreen(userKey: widget.userKey)),
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: Center(
         child: CircularProgressIndicator(),
       ),

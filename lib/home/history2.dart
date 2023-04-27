@@ -2,7 +2,6 @@ import 'package:abc/cameara/camera.dart';
 import 'package:abc/fitness/fitnesspage.dart';
 import 'package:abc/food/food_screen.dart';
 import 'package:abc/home/home.dart';
-import 'package:abc/home/navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:abc/Edit/profile.dart';
 import 'dart:math';
@@ -76,6 +75,8 @@ class _HistoryPage2State extends State<HistoryPage2> {
         .where('date', isEqualTo: widget.currentDateWithoutTime)
         .get();
 
+
+
     if (querySnapshot.docs.isNotEmpty) {
       Map<String, dynamic> targetData =
           querySnapshot.docs.first.data() as Map<String, dynamic>;
@@ -141,7 +142,6 @@ class _HistoryPage2State extends State<HistoryPage2> {
     PS_pro = R_pro / TG_pro;
   }
 
- 
   void _navigateToHistoryPage2(BuildContext context) {
     DateTime currentDate = widget.currentDateWithoutTime;
     DateTime previousDate = currentDate.subtract(Duration(days: 1));
@@ -183,7 +183,8 @@ class _HistoryPage2State extends State<HistoryPage2> {
 
     return inputDateWithoutTime == todayWithoutTime;
   }
-   void _navigateToProfile(BuildContext context) {
+
+  void _navigateToProfile(BuildContext context) {
     Navigator.push(
       context,
       MaterialPageRoute(
@@ -210,8 +211,6 @@ class _HistoryPage2State extends State<HistoryPage2> {
     );
   }
 
-  
-
   Future<bool> checkPreviousDateData() async {
     DateTime previousDate =
         widget.currentDateWithoutTime.subtract(Duration(days: 1));
@@ -234,176 +233,170 @@ class _HistoryPage2State extends State<HistoryPage2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-         appBar: AppBar(
-  title: Text('LiveWell'),
-  backgroundColor: Colors.green,
-  actions: [
-
-    IconButton(
-      icon: Icon(Icons.account_circle),
-      onPressed: () => _navigateToProfile(context),
-    ),
-    IconButton(
-        icon: Icon(Icons.restaurant_menu),
-        onPressed: () => _navigateToFood(context),
+      appBar: AppBar(
+        title: Text('LiveWell'),
+        backgroundColor: Colors.green,
+        actions: [
+          IconButton(
+            icon: Icon(Icons.account_circle),
+            onPressed: () => _navigateToProfile(context),
+          ),
+          IconButton(
+            icon: Icon(Icons.restaurant_menu),
+            onPressed: () => _navigateToFood(context),
+          ),
+          IconButton(
+            icon: Icon(Icons.fitness_center),
+            onPressed: () => _navigateToFitness(context),
+          ),
+        ],
       ),
-       IconButton(
-        icon: Icon(Icons.fitness_center),
-        onPressed: () => _navigateToFitness(context),
-      ),
-      
-  ],
-),
-   
-        body: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    FutureBuilder<bool>(
+                      future: checkPreviousDateData(),
+                      builder:
+                          (BuildContext context, AsyncSnapshot<bool> snapshot) {
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return CircularProgressIndicator();
+                        } else if (snapshot.hasData && snapshot.data == true) {
+                          return IconButton(
+                            icon: Icon(Icons.arrow_back),
+                            onPressed: () {
+                              _navigateToHistoryPage2(context);
+                            },
+                          );
+                        } else {
+                          return SizedBox.shrink();
+                        }
+                      },
+                    ),
+                    Text(
+                      DateFormat('dd MMMM')
+                          .format(widget.currentDateWithoutTime),
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                    isCurrentDate(widget.currentDateWithoutTime)
+                        ? SizedBox
+                            .shrink() // If currentDateWithoutTime is today, don't show the IconButton
+                        : IconButton(
+                            icon: Icon(Icons.arrow_forward),
+                            onPressed: () {
+                              _navigateToNextHistoryPage(context);
+                            },
+                          ),
+                  ],
+                ),
+                Text(
+                  'ยินดีต้อนรับ, $name',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  'ขอให้เป็นวันที่ดีสำหรับสุขภาพของคุณ',
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.normal),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: Center(
+              child: Stack(
+                alignment: Alignment.center,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      FutureBuilder<bool>(
-                        future: checkPreviousDateData(),
-                        builder: (BuildContext context,
-                            AsyncSnapshot<bool> snapshot) {
-                          if (snapshot.connectionState ==
-                              ConnectionState.waiting) {
-                            return CircularProgressIndicator();
-                          } else if (snapshot.hasData &&
-                              snapshot.data == true) {
-                            return IconButton(
-                              icon: Icon(Icons.arrow_back),
-                              onPressed: () {
-                                _navigateToHistoryPage2(context);
-                              },
-                            );
-                          } else {
-                            return SizedBox.shrink();
-                          }
-                        },
-                      ),
-                      Text(
-                        DateFormat('dd MMMM')
-                            .format(widget.currentDateWithoutTime),
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
-                      isCurrentDate(widget.currentDateWithoutTime)
-                          ? SizedBox
-                              .shrink() // If currentDateWithoutTime is today, don't show the IconButton
-                          : IconButton(
-                              icon: Icon(Icons.arrow_forward),
-                              onPressed: () {
-                                _navigateToNextHistoryPage(context);
-                              },
-                            ),
-                    ],
+                  CustomPaint(
+                    painter: CircularProgressPainter(PS_fat, PS_pro, PS_carb),
+                    child: Container(width: 200, height: 200),
                   ),
                   Text(
-                    'ยินดีต้อนรับ, $name',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    'ขอให้เป็นวันที่ดีสำหรับสุขภาพของคุณ',
-                    style:
-                        TextStyle(fontSize: 14, fontWeight: FontWeight.normal),
+                    '$R_cal/$TG_cal',
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
             ),
-            Expanded(
-              child: Center(
-                child: Stack(
-                  alignment: Alignment.center,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    CustomPaint(
-                      painter: CircularProgressPainter(PS_fat, PS_pro, PS_carb),
-                      child: Container(width: 200, height: 200),
+                    Icon(
+                      Icons.circle,
+                      color: Color(0xFFFE7E8B),
+                      size: 16,
                     ),
                     Text(
-                      '$R_cal/$TG_cal',
-                      style:
-                          TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                      'ไขมัน',
+                      style: TextStyle(
+                          fontSize: 18, fontWeight: FontWeight.normal),
+                    ),
+                    Text(
+                      '$R_fat / $TG_fat',
+                      style: TextStyle(
+                          fontSize: 14, fontWeight: FontWeight.normal),
                     ),
                   ],
                 ),
-              ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.circle,
+                      color: Color(0xFF6CEBA8),
+                      size: 16,
+                    ),
+                    Text(
+                      'โปรตีน',
+                      style: TextStyle(
+                          fontSize: 18, fontWeight: FontWeight.normal),
+                    ),
+                    Text(
+                      '$R_pro / $TG_pro',
+                      style: TextStyle(
+                          fontSize: 14, fontWeight: FontWeight.normal),
+                    ),
+                  ],
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.circle,
+                      color: Color(0xFF8FBBF8),
+                      size: 16,
+                    ),
+                    Text(
+                      'คาร์โบไฮเดรต',
+                      style: TextStyle(
+                          fontSize: 18, fontWeight: FontWeight.normal),
+                    ),
+                    Text(
+                      '$R_carb / $TG_carb',
+                      style: TextStyle(
+                          fontSize: 14, fontWeight: FontWeight.normal),
+                    ),
+                  ],
+                ),
+              ],
             ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.circle,
-                        color: Color(0xFFFE7E8B),
-                        size: 16,
-                      ),
-                      Text(
-                        'ไขมัน',
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.normal),
-                      ),
-                      Text(
-                        '$R_fat / $TG_fat',
-                        style: TextStyle(
-                            fontSize: 14, fontWeight: FontWeight.normal),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.circle,
-                        color: Color(0xFF6CEBA8),
-                        size: 16,
-                      ),
-                      Text(
-                        'โปรตีน',
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.normal),
-                      ),
-                      Text(
-                        '$R_pro / $TG_pro',
-                        style: TextStyle(
-                            fontSize: 14, fontWeight: FontWeight.normal),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.circle,
-                        color: Color(0xFF8FBBF8),
-                        size: 16,
-                      ),
-                      Text(
-                        'คาร์โบไฮเดรต',
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.normal),
-                      ),
-                      Text(
-                        '$R_carb / $TG_carb',
-                        style: TextStyle(
-                            fontSize: 14, fontWeight: FontWeight.normal),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      );
+          ),
+        ],
+      ),
+    );
   }
 }
 
