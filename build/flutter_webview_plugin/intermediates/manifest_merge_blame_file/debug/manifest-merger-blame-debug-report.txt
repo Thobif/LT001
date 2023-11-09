@@ -5,30 +5,30 @@
 5
 6    <uses-sdk
 7        android:minSdkVersion="16"
-7-->C:\Users\Admin\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_webview_plugin-0.4.0\android\src\main\AndroidManifest.xml
+7-->C:\Users\jiray\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_webview_plugin-0.4.0\android\src\main\AndroidManifest.xml
 8        android:targetSdkVersion="16" />
-8-->C:\Users\Admin\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_webview_plugin-0.4.0\android\src\main\AndroidManifest.xml
+8-->C:\Users\jiray\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_webview_plugin-0.4.0\android\src\main\AndroidManifest.xml
 9
 10    <application>
-10-->C:\Users\Admin\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_webview_plugin-0.4.0\android\src\main\AndroidManifest.xml:5:5-16:19
+10-->C:\Users\jiray\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_webview_plugin-0.4.0\android\src\main\AndroidManifest.xml:5:5-16:19
 11        <provider
-11-->C:\Users\Admin\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_webview_plugin-0.4.0\android\src\main\AndroidManifest.xml:6:9-15:20
+11-->C:\Users\jiray\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_webview_plugin-0.4.0\android\src\main\AndroidManifest.xml:6:9-15:20
 12            android:name="androidx.core.content.FileProvider"
-12-->C:\Users\Admin\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_webview_plugin-0.4.0\android\src\main\AndroidManifest.xml:7:13-62
+12-->C:\Users\jiray\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_webview_plugin-0.4.0\android\src\main\AndroidManifest.xml:7:13-62
 13            android:authorities="${applicationId}.fileprovider"
-13-->C:\Users\Admin\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_webview_plugin-0.4.0\android\src\main\AndroidManifest.xml:8:13-64
+13-->C:\Users\jiray\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_webview_plugin-0.4.0\android\src\main\AndroidManifest.xml:8:13-64
 14            android:exported="false"
-14-->C:\Users\Admin\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_webview_plugin-0.4.0\android\src\main\AndroidManifest.xml:9:13-37
+14-->C:\Users\jiray\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_webview_plugin-0.4.0\android\src\main\AndroidManifest.xml:9:13-37
 15            android:grantUriPermissions="true"
-15-->C:\Users\Admin\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_webview_plugin-0.4.0\android\src\main\AndroidManifest.xml:10:13-47
+15-->C:\Users\jiray\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_webview_plugin-0.4.0\android\src\main\AndroidManifest.xml:10:13-47
 16            tools:replace="android:authorities" >
-16-->C:\Users\Admin\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_webview_plugin-0.4.0\android\src\main\AndroidManifest.xml:11:13-48
+16-->C:\Users\jiray\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_webview_plugin-0.4.0\android\src\main\AndroidManifest.xml:11:13-48
 17            <meta-data
-17-->C:\Users\Admin\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_webview_plugin-0.4.0\android\src\main\AndroidManifest.xml:12:13-14:53
+17-->C:\Users\jiray\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_webview_plugin-0.4.0\android\src\main\AndroidManifest.xml:12:13-14:53
 18                android:name="android.support.FILE_PROVIDER_PATHS"
-18-->C:\Users\Admin\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_webview_plugin-0.4.0\android\src\main\AndroidManifest.xml:13:17-67
+18-->C:\Users\jiray\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_webview_plugin-0.4.0\android\src\main\AndroidManifest.xml:13:17-67
 19                android:resource="@xml/filepaths" />
-19-->C:\Users\Admin\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_webview_plugin-0.4.0\android\src\main\AndroidManifest.xml:14:17-50
+19-->C:\Users\jiray\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_webview_plugin-0.4.0\android\src\main\AndroidManifest.xml:14:17-50
 20        </provider>
 21    </application>
 22

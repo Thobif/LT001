@@ -32,96 +32,92 @@ class _FormFoodState extends State<FormFood> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Food Form'),
+        title: Text('กรอกสารอาหาร'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // Kcal text field
-            TextField(
-              controller: kcal,
-              decoration: InputDecoration(
-                labelText: 'Kcal',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(17.0),
-                ),
-              ),
-              keyboardType: TextInputType.number,
-            ),
-            SizedBox(height: 16),
-
-            // Fat text field
-            TextField(
-              controller: fat,
-              decoration: InputDecoration(
-                labelText: 'Fat',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(17.0),
-                ),
-              ),
-              keyboardType: TextInputType.number,
-            ),
-            SizedBox(height: 16),
-
-            // Carb text field
-            TextField(
-              controller: carb,
-              decoration: InputDecoration(
-                labelText: 'Carb',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(17.0),
-                ),
-              ),
-              keyboardType: TextInputType.number,
-            ),
-            SizedBox(height: 16),
-
-            // Pro text field
-            TextField(
-              controller: pro,
-              decoration: InputDecoration(
-                labelText: 'Pro',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(17.0),
-                ),
-              ),
-              keyboardType: TextInputType.number,
-            ),
-            SizedBox(height: 24),
-
-            ElevatedButton(
-              onPressed: () async {
-                double inputFat = double.parse(fat.text);
-                double inputCarb = double.parse(carb.text);
-                double inputPro = double.parse(pro.text);
-                double inputKcal = double.parse(kcal.text);
-
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => TargetMenu(
-                      userKey: widget.userKey,
-                      foodKey: 'none',
-                      fat: inputFat,
-                      carb: inputCarb,
-                      pro: inputPro,
-                      kcal: inputKcal,
-                      orderQuantity: 1,
-                    ),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/bg1.jpg'),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextField(
+                controller: fat,
+                decoration: InputDecoration(
+                  labelText: 'ไขมัน',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(17.0),
                   ),
-                );
-              },
-              child: Text('ตกลง'),
-              style: ElevatedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15.0),
+                ),
+                keyboardType: TextInputType.number,
+              ),
+              SizedBox(height: 16),
+
+              // Carb text field
+              TextField(
+                controller: carb,
+                decoration: InputDecoration(
+                  labelText: 'คาร์โบไฮเดรต',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(17.0),
+                  ),
+                ),
+                keyboardType: TextInputType.number,
+              ),
+              SizedBox(height: 16),
+
+              // Pro text field
+              TextField(
+                controller: pro,
+                decoration: InputDecoration(
+                  labelText: 'โปรตีน',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(17.0),
+                  ),
+                ),
+                keyboardType: TextInputType.number,
+              ),
+              SizedBox(height: 24),
+
+              ElevatedButton(
+                onPressed: () async {
+                  double inputFat = double.parse(fat.text);
+                  double inputCarb = double.parse(carb.text);
+                  double inputPro = double.parse(pro.text);
+                  
+
+                double inputKcal = inputFat * 9 + inputPro * 4 + inputCarb * 4 ;
+
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => TargetMenu(
+                        userKey: widget.userKey,
+                        foodKey: 'none',
+                        fat: inputFat,
+                        carb: inputCarb,
+                        pro: inputPro,
+                        kcal: inputKcal,
+                        orderQuantity: 1,
+                      ),
+                    ),
+                  );
+                },
+                child: Text('ตกลง'),
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

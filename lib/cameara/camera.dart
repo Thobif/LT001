@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:abc/cameara/addfoodcamera.dart';
+import 'package:abc/food/food_screen.dart';
+import 'package:abc/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
@@ -26,10 +28,18 @@ class Classify extends StatelessWidget {
             },
           ),
         ),
-        body: Center(
-            child: SendImageButton(
-          userKey: userKey,
-        )),
+        body: Container(
+           decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/images/bg1.jpg'),
+                fit: BoxFit.cover,
+              ),
+            ),
+          child: Center(
+              child: SendImageButton(
+            userKey: userKey,
+          )),
+        ),
       ),
     );
   }
@@ -44,6 +54,8 @@ class SendImageButton extends StatefulWidget {
   _SendImageButtonState createState() => _SendImageButtonState();
 }
 
+
+
 class _SendImageButtonState extends State<SendImageButton> {
   final ImagePicker _picker = ImagePicker();
 
@@ -56,7 +68,9 @@ class _SendImageButtonState extends State<SendImageButton> {
     }
 
     // Create a MultipartRequest with "POST" method
-    final url = Uri.parse('http://10.0.2.2:5000/');
+    final url = Uri.parse('http://172.16.8.229:5000/');
+
+    // final url = Uri.parse('http://172.16.8.229:8080');
     final request = http.MultipartRequest('POST', url);
 
     // Attach the image file to the request using the "image" key
@@ -178,23 +192,32 @@ class _SendImageButtonState extends State<SendImageButton> {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: _sendImage,
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(Icons.image, size: 18),
-            SizedBox(width: 4),
-            Text('เลือกรูปภาพ', style: TextStyle(fontSize: 14)),
-          ],
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        SizedBox(width: 8), // เพิ่มช่องว่างระหว่างปุ่ม
+        ElevatedButton(
+          onPressed: _sendImage,
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(Icons.image, size: 18),
+                SizedBox(width: 4),
+                Text('เลือกรูปภาพ', style: TextStyle(fontSize: 14)),
+              ],
+            ),
+          ),
+          style: ElevatedButton.styleFrom(
+            padding: EdgeInsets.all(0),
+          ),
         ),
-      ),
-      style: ElevatedButton.styleFrom(
-        padding: EdgeInsets.all(0),
-      ),
+       
+        
+      ],
     );
   }
 }

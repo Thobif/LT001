@@ -1,15 +1,15 @@
 import 'package:abc/cameara/camera.dart';
 import 'package:abc/fitness/fitnesspage.dart';
 import 'package:abc/food/food_screen.dart';
-import 'package:abc/home/date.dart';
 import 'package:abc/menu/menudetail.dart';
 import 'package:flutter/material.dart';
 import 'package:abc/Edit/profile.dart';
 import 'dart:math';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
-import 'package:abc/home/history2.dart';
 import 'history3.dart';
+import 'date2.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 class HomeScreen extends StatefulWidget {
   final String userKey;
@@ -34,8 +34,11 @@ class _HomePageState extends State<HomeScreen> {
   double PS_carb = 0.0;
   double PS_fat = 0.0;
 
+  int numberOfDates = 0;
+  
   void initState() {
     super.initState();
+    initializeDateFormatting('th', null);
     getData(widget.userKey);
   }
 
@@ -48,13 +51,26 @@ class _HomePageState extends State<HomeScreen> {
     } else {
       print('User not found');
     }
-
+//////
     CollectionReference targets =
         FirebaseFirestore.instance.collection('target');
 
     DocumentReference userRef =
         FirebaseFirestore.instance.collection('user').doc(widget.userKey);
 
+          QuerySnapshot querySnapshotA =
+        await targets.where('phone', isEqualTo: userRef).get();
+
+    if (querySnapshotA.docs.isNotEmpty) {
+      numberOfDates = querySnapshotA.docs.where((doc) {
+        final data =
+            doc.data() as Map<String, dynamic>?; // Cast to the expected type
+        return data != null && data.containsKey('date');
+      }).length;
+    } else {
+      print('No target data found for the specified date.');
+    }
+//////
     DateTime currentDate = DateTime.now();
     DateTime currentDateWithoutTime =
         DateTime(currentDate.year, currentDate.month, currentDate.day);
@@ -161,27 +177,33 @@ class _HomePageState extends State<HomeScreen> {
     );
   }
 
-  void _navigateToDatePage(BuildContext context) {
-    DateTime currentDate = DateTime.now();
-    DateTime currentDateWithoutTime =
-        DateTime(currentDate.year, currentDate.month, currentDate.day);
-
+  void _navigateToDatePage(BuildContext context, DateTime selectedDate) {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => DatePage(
+        builder: (context) => DatePage2(
           userKey: widget.userKey,
-          currentDateWithoutTime: currentDateWithoutTime,
+          currentDateWithoutTime:
+              selectedDate, // ส่งวันที่ที่ต้องการให้แสดงข้อมูล
         ),
       ),
     );
+  }
+
+  void _reloadData() {
+    getData(widget.userKey);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('LiveWell'),
+        title: GestureDetector(
+          onTap: () {
+            _reloadData(); // เมื่อคลิกที่ title ใน AppBar
+          },
+          child: Text('LiveWell'),
+        ),
         backgroundColor: Colors.green,
         actions: [
           IconButton(
@@ -201,67 +223,161 @@ class _HomePageState extends State<HomeScreen> {
             onPressed: () => _navigateTohistory(context),
           ),
         ],
+        automaticallyImplyLeading: false,
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/bg1.jpg'),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    IconButton(
-                      icon: Icon(Icons.arrow_back),
-                      onPressed: () {
-                        _navigateToDatePage(context);
-                      },
-                    ),
-                    Text(
-                      DateFormat('dd MMMM').format(DateTime.now()),
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                    SizedBox(width: 48), // สำหรับเว้นช่องว่างเทียบเท่ากับไอคอน
+                  children: <Widget>[
+                    if (numberOfDates != 1) ...[
+                      IconButton(
+                        icon: Icon(Icons.arrow_back),
+                        onPressed: () {
+                          DateTime currentDate = DateTime.now();
+                          DateTime selectedDate =
+                              currentDate.subtract(Duration(days: 1));
+                          _navigateToDatePage(context, selectedDate);
+                        },
+                      ),
+                      Text(
+                         DateFormat('dd MMMM', 'th').format(DateTime.now()),
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(width: 48)
+                    ] else ...[
+                      SizedBox(width: 48),
+                      Text(
+                        DateFormat('dd MMMM', 'th').format(DateTime.now()),
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(width: 48) // สำหรับเว้นช่องว่างเทียบเท่ากับไอคอน
+                    ],
                   ],
                 ),
-                Text(
-                  'ยินดีต้อนรับ, $name',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-                Text(
-                  'ขอให้เป็นวันที่ดีสำหรับสุขภาพของคุณ',
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.normal),
-                ),
-              ],
+                  Text(
+                    'ยินดีต้อนรับ, $name',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    'ขอให้เป็นวันที่ดีสำหรับสุขภาพของคุณ',
+                    style:
+                        TextStyle(fontSize: 14, fontWeight: FontWeight.normal),
+                  ),
+                ],
+              ),
             ),
-          ),
-          Expanded(
-            child: Center(
-              child: Stack(
-                alignment: Alignment.center,
+            Expanded(
+              child: Center(
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    CustomPaint(
+                      painter: CircularProgressPainter(PS_fat, PS_pro, PS_carb),
+                      child: Container(width: 250, height: 250),
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          '${NumberFormat.decimalPattern().format(R_cal)}/${NumberFormat.decimalPattern().format(TG_cal)}',
+                          style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(height: 8),
+                        Text(
+                          'แคลอรี่',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  CustomPaint(
-                    painter: CircularProgressPainter(PS_fat, PS_pro, PS_carb),
-                    child: Container(width: 250, height: 250),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.circle,
+                        color: Color(0xFFFE7E8B),
+                        size: 16,
+                      ),
+                      Text(
+                        'ไขมัน',
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.normal),
+                      ),
+                      Text(
+                        '$R_fat / $TG_fat',
+                        style: TextStyle(
+                            fontSize: 14, fontWeight: FontWeight.normal),
+                      ),
+                    ],
                   ),
                   Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Text(
-                        '$R_cal/$TG_cal',
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                        ),
+                      Icon(
+                        Icons.circle,
+                        color: Color(0xFF6CEBA8),
+                        size: 16,
                       ),
-                      SizedBox(height: 8),
                       Text(
-                        'kCal',
+                        'โปรตีน',
                         style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
+                            fontSize: 18, fontWeight: FontWeight.normal),
+                      ),
+                      Text(
+                        '$R_pro / $TG_pro',
+                        style: TextStyle(
+                            fontSize: 14, fontWeight: FontWeight.normal),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.circle,
+                        color: Color(0xFF8FBBF8),
+                        size: 16,
+                      ),
+                      Text(
+                        'คาร์โบไฮเดรต',
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.normal),
+                      ),
+                      Text(
+                        '${NumberFormat.decimalPattern().format(R_carb)} / ${NumberFormat.decimalPattern().format(TG_carb)}',
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.normal,
                         ),
                       ),
                     ],
@@ -269,77 +385,8 @@ class _HomePageState extends State<HomeScreen> {
                 ],
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.circle,
-                      color: Color(0xFFFE7E8B),
-                      size: 16,
-                    ),
-                    Text(
-                      'ไขมัน',
-                      style: TextStyle(
-                          fontSize: 18, fontWeight: FontWeight.normal),
-                    ),
-                    Text(
-                      '$R_fat / $TG_fat',
-                      style: TextStyle(
-                          fontSize: 14, fontWeight: FontWeight.normal),
-                    ),
-                  ],
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.circle,
-                      color: Color(0xFF6CEBA8),
-                      size: 16,
-                    ),
-                    Text(
-                      'โปรตีน',
-                      style: TextStyle(
-                          fontSize: 18, fontWeight: FontWeight.normal),
-                    ),
-                    Text(
-                      '$R_pro / $TG_pro',
-                      style: TextStyle(
-                          fontSize: 14, fontWeight: FontWeight.normal),
-                    ),
-                  ],
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.circle,
-                      color: Color(0xFF8FBBF8),
-                      size: 16,
-                    ),
-                    Text(
-                      'คาร์โบไฮเดรต',
-                      style: TextStyle(
-                          fontSize: 18, fontWeight: FontWeight.normal),
-                    ),
-                    Text(
-                      '$R_carb / $TG_carb',
-                      style: TextStyle(
-                          fontSize: 14, fontWeight: FontWeight.normal),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -358,50 +405,86 @@ class CircularProgressPainter extends CustomPainter {
     final center = Offset(size.width / 2, size.height / 2);
     final outerRadius = size.width / 2;
 
-    final paintBlue = Paint()
-      ..color = Color(0xFF8FBBF8)
+    final paintGray = Paint()
+      ..color = Colors.grey // สีเทา
       ..strokeWidth = 10
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round;
 
-    canvas.drawArc(
-        Rect.fromCircle(
-            center: center, radius: outerRadius - paintBlue.strokeWidth / 2),
-        90 * (pi / 180),
-        -progressBlue * 360 * (pi / 180),
-        false,
-        paintBlue);
+    if (progressBlue > 0) {
+      final paintBlue = Paint()
+        ..color = Color(0xFF8FBBF8)
+        ..strokeWidth = 10
+        ..style = PaintingStyle.stroke
+        ..strokeCap = StrokeCap.round;
 
-    final paintGreen = Paint()
-      ..color = Color(0xFF6CEBA8)
-      ..strokeWidth = 10
-      ..style = PaintingStyle.stroke
-      ..strokeCap = StrokeCap.round;
+      canvas.drawArc(
+          Rect.fromCircle(
+              center: center, radius: outerRadius - paintBlue.strokeWidth / 2),
+          90 * (pi / 180),
+          -progressBlue * 360 * (pi / 180),
+          false,
+          paintBlue);
+    } else {
+      canvas.drawArc(
+          Rect.fromCircle(
+              center: center, radius: outerRadius - paintGray.strokeWidth / 2),
+          0,
+          0,
+          false,
+          paintGray);
+    }
 
-    canvas.drawArc(
-        Rect.fromCircle(
-            center: center, radius: outerRadius - paintGreen.strokeWidth * 2),
-        90 * (pi / 180),
-        -progressGreen * 360 * (pi / 180),
-        false,
-        paintGreen);
+    if (progressGreen > 0) {
+      final paintGreen = Paint()
+        ..color = Color(0xFF6CEBA8)
+        ..strokeWidth = 10
+        ..style = PaintingStyle.stroke
+        ..strokeCap = StrokeCap.round;
 
-    final paintRed = Paint()
-      ..color = Color(0xFFFE7E8B)
-      ..strokeWidth = 10
-      ..style = PaintingStyle.stroke
-      ..strokeCap = StrokeCap.round;
+      canvas.drawArc(
+          Rect.fromCircle(
+              center: center, radius: outerRadius - paintGreen.strokeWidth * 2),
+          90 * (pi / 180),
+          -progressGreen * 360 * (pi / 180),
+          false,
+          paintGreen);
+    } else {
+      canvas.drawArc(
+          Rect.fromCircle(
+              center: center, radius: outerRadius - paintGray.strokeWidth * 2),
+          0,
+          0,
+          false,
+          paintGray);
+    }
 
-    canvas.drawArc(
-        Rect.fromCircle(
-            center: center, radius: outerRadius - paintRed.strokeWidth * 3.5),
-        90 * (pi / 180),
-        -progressRed * 360 * (pi / 180),
-        false,
-        paintRed);
+    if (progressRed > 0) {
+      final paintRed = Paint()
+        ..color = Color(0xFFFE7E8B)
+        ..strokeWidth = 10
+        ..style = PaintingStyle.stroke
+        ..strokeCap = StrokeCap.round;
+
+      canvas.drawArc(
+          Rect.fromCircle(
+              center: center, radius: outerRadius - paintRed.strokeWidth * 3.5),
+          90 * (pi / 180),
+          -progressRed * 360 * (pi / 180),
+          false,
+          paintRed);
+    } else {
+      canvas.drawArc(
+          Rect.fromCircle(
+              center: center,
+              radius: outerRadius - paintGray.strokeWidth * 3.5),
+          0,
+          0,
+          false,
+          paintGray);
+    }
   }
 
-  @override
   bool shouldRepaint(CustomPainter oldDelegate) {
     return true;
   }

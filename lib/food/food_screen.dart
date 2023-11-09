@@ -1,4 +1,5 @@
 import 'package:abc/cameara/camera.dart';
+import 'package:abc/food/foodmap.dart';
 import 'package:abc/food/listffod.dart';
 import 'package:flutter/material.dart';
 import 'package:abc/food/restaurantmodel.dart';
@@ -44,6 +45,15 @@ class _FoodScreenState extends State<FoodScreen> {
     );
   }
 
+  void _navigateToFoodMap(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => MapsPage(userKey: widget.userKey),
+      ),
+    );
+  }
+
   Future<List<Restaurant>> _fetchRestaurants() async {
     final querySnapshot =
         await FirebaseFirestore.instance.collection('shop').get();
@@ -58,9 +68,13 @@ class _FoodScreenState extends State<FoodScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('LiveWell'),
+        title: Text('ร้านอาหาร'),
         backgroundColor: Colors.green,
         actions: [
+          IconButton(
+            icon: Icon(Icons.map),
+            onPressed: () => _navigateToFoodMap(context),
+          ),
           IconButton(
             icon: Icon(Icons.camera_alt),
             onPressed: () => _navigateToCamera(context),
@@ -71,66 +85,54 @@ class _FoodScreenState extends State<FoodScreen> {
           ),
         ],
       ),
-      body: NestedScrollView(
-        headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
-          return [
-            SliverAppBar(
-              expandedHeight: 200.0,
-              flexibleSpace: FlexibleSpaceBar(
-                background: GoogleMap(
-                  initialCameraPosition: CameraPosition(
-                    target: LatLng(13.285950554812402, 100.92557594699406),
-                    zoom: 16,
-                  ),
-                  markers: Set<Marker>.of([
-                    Marker(
-                      markerId: MarkerId('marker_1'),
-                      position: LatLng(13.285950554812402, 100.92557594699406),
-                      infoWindow: InfoWindow(
-                        title: 'Google',
-                        snippet: 'Googleplex',
-                      ),
-                    ),
-                  ]),
-                ),
+      body: Container(
+         decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/images/bg1.jpg'),
+                fit: BoxFit.cover,
               ),
             ),
-          ];
-        },
-        body: FutureBuilder<List<Restaurant>>(
-          future: _restaurantListFuture,
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              final restaurantList = snapshot.data!;
-              return ListView.builder(
-                itemCount: restaurantList.length,
-                itemBuilder: (context, index) {
-                  final restaurant = restaurantList[index];
-                  return ListTile(
-                    title: Text(restaurant.name),
-                    onTap: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => MenuDetail(
-                            userKey: widget.userKey,
-                            restaurant: restaurant,
-                          ),
-                        ),
-                      );
-                    },
-                  );
-                },
-              );
-            } else if (snapshot.hasError) {
-              return Center(
-                child: Text('Failed to fetch restaurants'),
-              );
-            } else {
-              return Center(
-                child: CircularProgressIndicator(),
-              );
-            }
+        child: NestedScrollView(
+          headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+            return [
+             
+            ];
           },
+          body: FutureBuilder<List<Restaurant>>(
+            future: _restaurantListFuture,
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                final restaurantList = snapshot.data!;
+                return ListView.builder(
+                  itemCount: restaurantList.length,
+                  itemBuilder: (context, index) {
+                    final restaurant = restaurantList[index];
+                    return ListTile(
+                      title: Text(restaurant.name),
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => MenuDetail(
+                              userKey: widget.userKey,
+                              restaurant: restaurant,
+                            ),
+                          ),
+                        );
+                      },
+                    );
+                  },
+                );
+              } else if (snapshot.hasError) {
+                return Center(
+                  child: Text('Failed to fetch restaurants'),
+                );
+              } else {
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            },
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
@@ -146,7 +148,9 @@ class _FoodScreenState extends State<FoodScreen> {
         },
         child: Icon(Icons.add),
         backgroundColor: Colors.green,
+        
       ),
+      
     );
   }
 }

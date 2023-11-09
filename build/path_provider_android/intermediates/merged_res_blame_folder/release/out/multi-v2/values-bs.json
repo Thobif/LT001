@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\fluttertest\\live_well\\build\\path_provider_android\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-bs\\values-bs.xml",
+            "outputFile": "C:\\project\\PJ_01\\build\\path_provider_android\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-bs\\values-bs.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\dabcda68851483edc65f4d3af38ff3f1\\transformed\\core-1.6.0\\res\\values-bs\\values-bs.xml",
+                    "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\6f29ad8e9f10ea3825ed2c4d0ccffdf5\\transformed\\core-1.6.0\\res\\values-bs\\values-bs.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -16,10 +16,10 @@
             ]
         },
         {
-            "outputFile": "C:\\fluttertest\\live_well\\build\\path_provider_android\\intermediates\\merged_res\\release\\values-bs\\values-bs.xml",
+            "outputFile": "C:\\project\\PJ_01\\build\\path_provider_android\\intermediates\\merged_res\\release\\values-bs\\values-bs.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\dabcda68851483edc65f4d3af38ff3f1\\transformed\\core-1.6.0\\res\\values-bs\\values-bs.xml",
+                    "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\6f29ad8e9f10ea3825ed2c4d0ccffdf5\\transformed\\core-1.6.0\\res\\values-bs\\values-bs.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

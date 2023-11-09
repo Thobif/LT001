@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\fluttertest\\live_well\\build\\webview_flutter_android\\intermediates\\merged_res\\release\\values-sw\\values-sw.xml",
+            "outputFile": "C:\\project\\PJ_01\\build\\webview_flutter_android\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-sw\\values-sw.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\dabcda68851483edc65f4d3af38ff3f1\\transformed\\core-1.6.0\\res\\values-sw\\values-sw.xml",
+                    "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\6f29ad8e9f10ea3825ed2c4d0ccffdf5\\transformed\\core-1.6.0\\res\\values-sw\\values-sw.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -16,10 +16,10 @@
             ]
         },
         {
-            "outputFile": "C:\\fluttertest\\live_well\\build\\webview_flutter_android\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-sw\\values-sw.xml",
+            "outputFile": "C:\\project\\PJ_01\\build\\webview_flutter_android\\intermediates\\merged_res\\release\\values-sw\\values-sw.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\dabcda68851483edc65f4d3af38ff3f1\\transformed\\core-1.6.0\\res\\values-sw\\values-sw.xml",
+                    "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\6f29ad8e9f10ea3825ed2c4d0ccffdf5\\transformed\\core-1.6.0\\res\\values-sw\\values-sw.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

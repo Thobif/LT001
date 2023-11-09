@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\fluttertest\\live_well\\build\\flutter_webview_plugin\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-watch-v21\\values-watch-v21.xml",
+            "outputFile": "C:\\project\\PJ_01\\build\\flutter_webview_plugin\\intermediates\\merged_res\\release\\values-watch-v21\\values-watch-v21.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\a205d4a2e89083f4ba25d3db7b78e21f\\transformed\\appcompat-1.1.0\\res\\values-watch-v21\\values-watch-v21.xml",
+                    "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\026cf4581e3013c4260c28ae6566a61f\\transformed\\appcompat-1.1.0\\res\\values-watch-v21\\values-watch-v21.xml",
                     "from": {
                         "startLines": "2,6,10",
                         "startColumns": "4,4,4",
@@ -17,10 +17,10 @@
             ]
         },
         {
-            "outputFile": "C:\\fluttertest\\live_well\\build\\flutter_webview_plugin\\intermediates\\merged_res\\release\\values-watch-v21\\values-watch-v21.xml",
+            "outputFile": "C:\\project\\PJ_01\\build\\flutter_webview_plugin\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-watch-v21\\values-watch-v21.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\a205d4a2e89083f4ba25d3db7b78e21f\\transformed\\appcompat-1.1.0\\res\\values-watch-v21\\values-watch-v21.xml",
+                    "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\026cf4581e3013c4260c28ae6566a61f\\transformed\\appcompat-1.1.0\\res\\values-watch-v21\\values-watch-v21.xml",
                     "from": {
                         "startLines": "2,6,10",
                         "startColumns": "4,4,4",

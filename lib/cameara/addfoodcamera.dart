@@ -25,9 +25,16 @@ class _AddFoodCameraState extends State<AddFoodCamera> {
   int R_carb = 0;
   int R_fat = 0;
 
-  void _submitOrder(BuildContext context) async {
-    CollectionReference result =
-        FirebaseFirestore.instance.collection('result');
+  bool isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    fetchFoodData();
+  }
+
+  Future<void> fetchFoodData() async {
+    CollectionReference result = FirebaseFirestore.instance.collection('result');
     CollectionReference food = FirebaseFirestore.instance.collection('food');
     DocumentReference shopRef = FirebaseFirestore.instance
         .collection('shop')
@@ -39,31 +46,39 @@ class _AddFoodCameraState extends State<AddFoodCamera> {
         .where('name', isEqualTo: widget.menuName)
         .where('shop', isEqualTo: shopRef)
         .get();
-    Map<String, dynamic> targetData =
-        querySnapshotfood.docs.first.data() as Map<String, dynamic>;
 
     if (querySnapshotfood.docs.isNotEmpty) {
-      num R_cal = 0;
-      num R_pro = 0;
-      num R_carb = 0;
-      num R_fat = 0;
-      foodKey = querySnapshotfood.docs.first.id;
       Map<String, dynamic> targetData =
           querySnapshotfood.docs.first.data() as Map<String, dynamic>;
-      R_cal = targetData['kcal']?.toDouble() ?? 0.0;
-      R_pro = targetData['pro']?.toDouble() ?? 0.0;
-      R_carb = targetData['carb']?.toDouble() ?? 0.0;
-      R_fat = targetData['fat']?.toDouble() ?? 0.0;
-      print("R_cel = $R_cal");
-      print("userreferece = $userRef");
+      foodKey = querySnapshotfood.docs.first.id;
+      R_cal = targetData['kcal']?.toInt() ?? 0;
+      R_pro = targetData['pro']?.toInt() ?? 0;
+      R_carb = targetData['carb']?.toInt() ?? 0;
+      R_fat = targetData['fat']?.toInt() ?? 0;
 
-      print("foodkey = $foodKey");
+      setState(() {
+        isLoading = false;
+      });
+    } else {
+      print("error food");
+      setState(() {
+        isLoading = false;
+      });
+    }
+  }
+
+  void _submitOrder(BuildContext context) async {
+    CollectionReference result =
+        FirebaseFirestore.instance.collection('result');
+    DocumentReference userRef =
+        FirebaseFirestore.instance.collection('user').doc(widget.userKey);
+
+    if (!isLoading) {
+      DateTime currentDate = DateTime.now();
 
       QuerySnapshot querySnapshot = await result
           .where('phone', isEqualTo: userRef)
-          // .where('food_ID', isEqualTo: foodKey)
           .get();
-      DateTime currentDate = DateTime.now();
 
       if (querySnapshot.docs.isNotEmpty) {
         await result.add({
@@ -87,27 +102,8 @@ class _AddFoodCameraState extends State<AddFoodCamera> {
         print("error result");
       }
     } else {
-      print("error food");
+      print("Data is still loading.");
     }
-
-    // if (querySnapshotfood.docs.isNotEmpty) {
-    //   String foodKey = querySnapshotfood.docs.first.id;
-    //   num R_cal = 0;
-    //   num R_pro = 0;
-    //   num R_carb = 0;
-    //   num R_fat = 0;
-
-    //   Map<String, dynamic> targetData =
-    //       querySnapshotfood.docs.first.data() as Map<String, dynamic>;
-    //   setState(() {
-    //     R_cal = targetData['kcal']?.toDouble() ?? 0.0;
-    //     R_pro = targetData['pro']?.toDouble() ?? 0.0;
-    //     R_carb = targetData['carb']?.toDouble() ?? 0.0;
-    //     R_fat = targetData['fat']?.toDouble() ?? 0.0;
-    //   });
-    // } else {
-    //   print("error food");
-    // }
 
     Navigator.pushReplacement(
       context,
@@ -123,25 +119,35 @@ class _AddFoodCameraState extends State<AddFoodCamera> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Target Food'),
+        title: Text('ตรวจจับอาหาร'),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // Text('Kcal: ${(kcal * quantity).toStringAsFixed(2)}'),
-            // Text('Fat: ${(fat * quantity).toStringAsFixed(2)}'),
-            // Text('Carb: ${(carb * quantity).toStringAsFixed(2)}'),
-            // Text('Pro: ${(pro * quantity).toStringAsFixed(2)}'),
-            // Text('Order quantity: $quantity'),
-            ElevatedButton(
-              child: Text('Submit order'),
-              onPressed: () {
-                _submitOrder(context);
-              },
-            ),
-          ],
-        ),
+        child: isLoading
+            ? CircularProgressIndicator()
+            : Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('แคลอรี่: $R_cal'),
+                  Text('โปรตีน: $R_pro'),
+                  Text('คาร์โบไฮเดรต: $R_carb'),
+                  Text('ไขมัน: $R_fat'),
+                  ElevatedButton(
+                    child: Text('ยืนยัน'),
+                    onPressed: () {
+                      _submitOrder(context);
+                    },
+                  ),
+                  ElevatedButton(
+                    child: Text('ยกเลิก'),
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.red, // เลือกสีสีแดงหรือสีที่คุณต้องการ
+                    ),
+                    onPressed: () {
+                      Navigator.pop(context); // ใช้ Navigator.pop เพื่อกลับไปหน้าก่อนหน้า
+                    },
+                  ),
+                ],
+              ),
       ),
     );
   }

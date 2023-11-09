@@ -1,4 +1,4 @@
-#Fri Apr 14 16:15:41 ICT 2023
-base.0=C\:\\fluttertest\\live_well\\build\\app\\intermediates\\dex\\release\\minifyReleaseWithR8\\classes.dex
-renamed.0=classes.dex
+#Fri Oct 20 08:29:57 HOVT 2023
+base.0=C\:\\project\\PJ_01\\build\\app\\intermediates\\dex\\release\\minifyReleaseWithR8\\classes.dex
 path.0=classes.dex
+renamed.0=classes.dex

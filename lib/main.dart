@@ -23,6 +23,7 @@ class MyApp2 extends StatelessWidget {
         fontFamily: 'Manjari',
       ),
       home: SplashScreen(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }

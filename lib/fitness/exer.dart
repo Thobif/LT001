@@ -79,7 +79,7 @@ class _calKcalState extends State<calKcal> {
                     decoration: InputDecoration(
                       labelText: 'กรอกจำนวนแคลอรี่',
                       hintText: 'เช่น 100',
-                      suffixText: 'Kcal',
+                      suffixText: 'แคลอรี่',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(27),
                       ),

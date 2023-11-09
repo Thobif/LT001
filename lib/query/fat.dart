@@ -25,6 +25,7 @@ class FatPage extends StatefulWidget {
   @override
   _FatPageState createState() => _FatPageState();
 }
+
 class _FatPageState extends State<FatPage> {
   int? _bodyFatPercentage;
 
@@ -32,7 +33,7 @@ class _FatPageState extends State<FatPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('ไขมันในร่างกาย'),
+        title: Text('ขั้นตอนที่ 8:ไขมันในร่างกาย'),
         backgroundColor: Colors.green,
       ),
       body: SingleChildScrollView(
@@ -42,7 +43,9 @@ class _FatPageState extends State<FatPage> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               SizedBox(height: 20),
-              Image.asset(widget.gender == 'male' ? 'assets/images/male.jpg' : 'assets/images/female.jpg'), // แสดงรูปภาพตามเพศ
+              Image.asset(widget.gender == 'male'
+                  ? 'assets/images/male.jpg'
+                  : 'assets/images/female.jpg'), // แสดงรูปภาพตามเพศ
               SizedBox(height: 20),
               Text(
                 'คุณมีเปอร์เซนไขมันในร่างกายเท่าไหร่?',
@@ -61,7 +64,7 @@ class _FatPageState extends State<FatPage> {
                   border: OutlineInputBorder(),
                 ),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 210),
               Center(
                 child: ElevatedButton(
                   child: Text('ต่อไป'),

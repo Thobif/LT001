@@ -92,7 +92,7 @@ class _LoginPageState extends State<LoginPage> {
                     keyboardType: TextInputType.number,
                     maxLength: 10,
                     decoration: InputDecoration(
-                      labelText: 'เบอร์โทร',
+                      labelText: 'เบอร์โทรศัพท์',
                       hintText: '080-123-4567',
                       prefixIcon: Icon(Icons.phone),
                       border: OutlineInputBorder(),
@@ -112,15 +112,15 @@ class _LoginPageState extends State<LoginPage> {
                 ElevatedButton(
                   onPressed: _verifyPhoneNumber,
                   child: Text(
-                    'Login',
+                    'เข้าสู่ระบบ',
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 18,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   style: ElevatedButton.styleFrom(
                     padding:
-                        EdgeInsets.symmetric(horizontal: 150, vertical: 20),
+                        EdgeInsets.symmetric(horizontal: 65, vertical: 12),
                     backgroundColor: Colors.black,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),

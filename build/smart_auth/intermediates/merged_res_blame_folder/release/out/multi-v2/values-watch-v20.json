@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\fluttertest\\live_well\\build\\smart_auth\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-watch-v20\\values-watch-v20.xml",
+            "outputFile": "C:\\project\\PJ_01\\build\\smart_auth\\intermediates\\merged_res\\release\\values-watch-v20\\values-watch-v20.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\78e006dcbb8b9490bbfb1eb98d14d6d1\\transformed\\jetified-play-services-auth-20.4.0\\res\\values-watch-v20\\values.xml",
+                    "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\f8964c4b9b5901313a0aecbca632750e\\transformed\\jetified-play-services-auth-20.4.0\\res\\values-watch-v20\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11",
                         "startColumns": "0,0,0,0,0,0,0,0",
@@ -23,10 +23,10 @@
             ]
         },
         {
-            "outputFile": "C:\\fluttertest\\live_well\\build\\smart_auth\\intermediates\\merged_res\\release\\values-watch-v20\\values-watch-v20.xml",
+            "outputFile": "C:\\project\\PJ_01\\build\\smart_auth\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-watch-v20\\values-watch-v20.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\78e006dcbb8b9490bbfb1eb98d14d6d1\\transformed\\jetified-play-services-auth-20.4.0\\res\\values-watch-v20\\values.xml",
+                    "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\f8964c4b9b5901313a0aecbca632750e\\transformed\\jetified-play-services-auth-20.4.0\\res\\values-watch-v20\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11",
                         "startColumns": "0,0,0,0,0,0,0,0",

@@ -1,26 +1,26 @@
 [
     {
-        "merged": "C:\\fluttertest\\live_well\\build\\flutter_webview_plugin\\intermediates\\merged_res\\release\\drawable-v21\\abc_action_bar_item_background_material.xml",
-        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\a205d4a2e89083f4ba25d3db7b78e21f\\transformed\\appcompat-1.1.0\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
+        "merged": "C:\\project\\PJ_01\\build\\flutter_webview_plugin\\intermediates\\merged_res\\release\\drawable-v21\\abc_btn_colored_material.xml",
+        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\026cf4581e3013c4260c28ae6566a61f\\transformed\\appcompat-1.1.0\\res\\drawable-v21\\abc_btn_colored_material.xml"
     },
     {
-        "merged": "C:\\fluttertest\\live_well\\build\\flutter_webview_plugin\\intermediates\\merged_res\\release\\drawable-v21\\abc_btn_colored_material.xml",
-        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\a205d4a2e89083f4ba25d3db7b78e21f\\transformed\\appcompat-1.1.0\\res\\drawable-v21\\abc_btn_colored_material.xml"
+        "merged": "C:\\project\\PJ_01\\build\\flutter_webview_plugin\\intermediates\\merged_res\\release\\drawable-v21\\abc_dialog_material_background.xml",
+        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\026cf4581e3013c4260c28ae6566a61f\\transformed\\appcompat-1.1.0\\res\\drawable-v21\\abc_dialog_material_background.xml"
     },
     {
-        "merged": "C:\\fluttertest\\live_well\\build\\flutter_webview_plugin\\intermediates\\merged_res\\release\\drawable-v21\\abc_edit_text_material.xml",
-        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\a205d4a2e89083f4ba25d3db7b78e21f\\transformed\\appcompat-1.1.0\\res\\drawable-v21\\abc_edit_text_material.xml"
+        "merged": "C:\\project\\PJ_01\\build\\flutter_webview_plugin\\intermediates\\merged_res\\release\\drawable-v21\\abc_edit_text_material.xml",
+        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\026cf4581e3013c4260c28ae6566a61f\\transformed\\appcompat-1.1.0\\res\\drawable-v21\\abc_edit_text_material.xml"
     },
     {
-        "merged": "C:\\fluttertest\\live_well\\build\\flutter_webview_plugin\\intermediates\\merged_res\\release\\drawable-v21\\notification_action_background.xml",
-        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\dabcda68851483edc65f4d3af38ff3f1\\transformed\\core-1.6.0\\res\\drawable-v21\\notification_action_background.xml"
+        "merged": "C:\\project\\PJ_01\\build\\flutter_webview_plugin\\intermediates\\merged_res\\release\\drawable-v21\\notification_action_background.xml",
+        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\6f29ad8e9f10ea3825ed2c4d0ccffdf5\\transformed\\core-1.6.0\\res\\drawable-v21\\notification_action_background.xml"
     },
     {
-        "merged": "C:\\fluttertest\\live_well\\build\\flutter_webview_plugin\\intermediates\\merged_res\\release\\drawable-v21\\abc_dialog_material_background.xml",
-        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\a205d4a2e89083f4ba25d3db7b78e21f\\transformed\\appcompat-1.1.0\\res\\drawable-v21\\abc_dialog_material_background.xml"
+        "merged": "C:\\project\\PJ_01\\build\\flutter_webview_plugin\\intermediates\\merged_res\\release\\drawable-v21\\abc_action_bar_item_background_material.xml",
+        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\026cf4581e3013c4260c28ae6566a61f\\transformed\\appcompat-1.1.0\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
     },
     {
-        "merged": "C:\\fluttertest\\live_well\\build\\flutter_webview_plugin\\intermediates\\merged_res\\release\\drawable-v21\\abc_list_divider_material.xml",
-        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\a205d4a2e89083f4ba25d3db7b78e21f\\transformed\\appcompat-1.1.0\\res\\drawable-v21\\abc_list_divider_material.xml"
+        "merged": "C:\\project\\PJ_01\\build\\flutter_webview_plugin\\intermediates\\merged_res\\release\\drawable-v21\\abc_list_divider_material.xml",
+        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\026cf4581e3013c4260c28ae6566a61f\\transformed\\appcompat-1.1.0\\res\\drawable-v21\\abc_list_divider_material.xml"
     }
 ]

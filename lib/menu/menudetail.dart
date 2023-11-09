@@ -76,14 +76,14 @@ class _MenuDetailState extends State<MenuDetail> {
                           context: context,
                           builder: (BuildContext context) {
                             return AlertDialog(
-                              title: Text('How many plates?'),
+                              title: Text('จำนวนอาหาร'),
                               content: Container(
                                 width: 150.0,
                                 height: 50.0,
                                 child: TextField(
                                   keyboardType: TextInputType.number,
                                   decoration: InputDecoration(
-                                      hintText: 'Enter quantity'),
+                                      hintText: 'กรอกจำนวนอาหาร'),
                                   onChanged: (value) {
                                     orderQuantity = int.tryParse(value) ?? 1;
                                   },

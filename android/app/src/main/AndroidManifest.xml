@@ -1,12 +1,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.abc">
      <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+
    <application
         android:label="LiveWell"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+
         <meta-data android:name="com.google.android.geo.API_KEY"                
-                android:value="AIzaSyCfMO-0B7Wbbay2Sy4A01H4EH2bFvfQzeo"/>
+                android:value="AIzaSyAl-NxToVOS_VhZN_yOa1r_86S_UFNnOOw"/>
 
         <activity
             android:name=".MainActivity"
@@ -34,5 +39,6 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+            
     </application>
 </manifest>

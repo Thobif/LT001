@@ -1,10 +1,10 @@
 [
     {
-        "merged": "C:\\fluttertest\\live_well\\build\\flutter_inappwebview\\intermediates\\merged_res\\release\\xml\\provider_paths.xml",
+        "merged": "C:\\project\\PJ_01\\build\\flutter_inappwebview\\intermediates\\merged_res\\release\\xml\\provider_paths.xml",
         "source": "C:\\Users\\jiray\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\flutter_inappwebview-5.7.2+3\\android\\src\\main\\res\\xml\\provider_paths.xml"
     },
     {
-        "merged": "C:\\fluttertest\\live_well\\build\\flutter_inappwebview\\intermediates\\merged_res\\release\\xml\\image_share_filepaths.xml",
-        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\f9d00c0ad06f3737f5584e3a1be6cac9\\transformed\\browser-1.4.0\\res\\xml\\image_share_filepaths.xml"
+        "merged": "C:\\project\\PJ_01\\build\\flutter_inappwebview\\intermediates\\merged_res\\release\\xml\\image_share_filepaths.xml",
+        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\c4185441624d47bff81a6efa5eda3fc1\\transformed\\browser-1.4.0\\res\\xml\\image_share_filepaths.xml"
     }
 ]

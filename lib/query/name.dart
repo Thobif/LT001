@@ -33,7 +33,6 @@ class ResultPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        
         backgroundColor: Colors.green,
       ),
       body: Center(
@@ -70,6 +69,7 @@ class _FirstPageState extends State<FirstPage> {
       appBar: AppBar(
         title: Text('ขั้นตอนที่ 1: ใส่ชื่อของคุณ'),
         backgroundColor: Colors.green,
+        
       ),
       body: SingleChildScrollView(
         child: Stack(
@@ -111,7 +111,7 @@ class _FirstPageState extends State<FirstPage> {
                       contentPadding: EdgeInsets.symmetric(vertical: 10),
                     ),
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 260),
                   Center(
                     child: ElevatedButton(
                       child: Text('ต่อไป'),

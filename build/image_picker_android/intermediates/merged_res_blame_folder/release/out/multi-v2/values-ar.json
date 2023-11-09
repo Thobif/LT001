@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\fluttertest\\live_well\\build\\image_picker_android\\intermediates\\merged_res\\release\\values-ar\\values-ar.xml",
+            "outputFile": "C:\\project\\PJ_01\\build\\image_picker_android\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-ar\\values-ar.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\50ac565c2d78ece85381646878fcb457\\transformed\\core-1.9.0\\res\\values-ar\\values-ar.xml",
+                    "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\4bb9a79cae9b50f4d00631218e1e23f6\\transformed\\core-1.9.0\\res\\values-ar\\values-ar.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -16,10 +16,10 @@
             ]
         },
         {
-            "outputFile": "C:\\fluttertest\\live_well\\build\\image_picker_android\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-ar\\values-ar.xml",
+            "outputFile": "C:\\project\\PJ_01\\build\\image_picker_android\\intermediates\\merged_res\\release\\values-ar\\values-ar.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\50ac565c2d78ece85381646878fcb457\\transformed\\core-1.9.0\\res\\values-ar\\values-ar.xml",
+                    "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\4bb9a79cae9b50f4d00631218e1e23f6\\transformed\\core-1.9.0\\res\\values-ar\\values-ar.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

@@ -1,10 +1,10 @@
 [
     {
-        "merged": "C:\\fluttertest\\live_well\\build\\flutter_webview_plugin\\intermediates\\merged_res\\release\\layout-watch-v20\\abc_alert_dialog_button_bar_material.xml",
-        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\a205d4a2e89083f4ba25d3db7b78e21f\\transformed\\appcompat-1.1.0\\res\\layout-watch-v20\\abc_alert_dialog_button_bar_material.xml"
+        "merged": "C:\\project\\PJ_01\\build\\flutter_webview_plugin\\intermediates\\merged_res\\release\\layout-watch-v20\\abc_alert_dialog_button_bar_material.xml",
+        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\026cf4581e3013c4260c28ae6566a61f\\transformed\\appcompat-1.1.0\\res\\layout-watch-v20\\abc_alert_dialog_button_bar_material.xml"
     },
     {
-        "merged": "C:\\fluttertest\\live_well\\build\\flutter_webview_plugin\\intermediates\\merged_res\\release\\layout-watch-v20\\abc_alert_dialog_title_material.xml",
-        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\a205d4a2e89083f4ba25d3db7b78e21f\\transformed\\appcompat-1.1.0\\res\\layout-watch-v20\\abc_alert_dialog_title_material.xml"
+        "merged": "C:\\project\\PJ_01\\build\\flutter_webview_plugin\\intermediates\\merged_res\\release\\layout-watch-v20\\abc_alert_dialog_title_material.xml",
+        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\026cf4581e3013c4260c28ae6566a61f\\transformed\\appcompat-1.1.0\\res\\layout-watch-v20\\abc_alert_dialog_title_material.xml"
     }
 ]

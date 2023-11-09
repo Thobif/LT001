@@ -1,14 +1,14 @@
 [
     {
-        "merged": "C:\\fluttertest\\live_well\\build\\smart_auth\\intermediates\\merged_res\\release\\drawable-watch-v20\\common_google_signin_btn_text_light_normal.xml",
-        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\78e006dcbb8b9490bbfb1eb98d14d6d1\\transformed\\jetified-play-services-auth-20.4.0\\res\\drawable-watch-v20\\common_google_signin_btn_text_light_normal.xml"
+        "merged": "C:\\project\\PJ_01\\build\\smart_auth\\intermediates\\merged_res\\release\\drawable-watch-v20\\common_google_signin_btn_text_disabled.xml",
+        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\f8964c4b9b5901313a0aecbca632750e\\transformed\\jetified-play-services-auth-20.4.0\\res\\drawable-watch-v20\\common_google_signin_btn_text_disabled.xml"
     },
     {
-        "merged": "C:\\fluttertest\\live_well\\build\\smart_auth\\intermediates\\merged_res\\release\\drawable-watch-v20\\common_google_signin_btn_text_disabled.xml",
-        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\78e006dcbb8b9490bbfb1eb98d14d6d1\\transformed\\jetified-play-services-auth-20.4.0\\res\\drawable-watch-v20\\common_google_signin_btn_text_disabled.xml"
+        "merged": "C:\\project\\PJ_01\\build\\smart_auth\\intermediates\\merged_res\\release\\drawable-watch-v20\\common_google_signin_btn_text_light_normal.xml",
+        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\f8964c4b9b5901313a0aecbca632750e\\transformed\\jetified-play-services-auth-20.4.0\\res\\drawable-watch-v20\\common_google_signin_btn_text_light_normal.xml"
     },
     {
-        "merged": "C:\\fluttertest\\live_well\\build\\smart_auth\\intermediates\\merged_res\\release\\drawable-watch-v20\\common_google_signin_btn_text_dark_normal.xml",
-        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\78e006dcbb8b9490bbfb1eb98d14d6d1\\transformed\\jetified-play-services-auth-20.4.0\\res\\drawable-watch-v20\\common_google_signin_btn_text_dark_normal.xml"
+        "merged": "C:\\project\\PJ_01\\build\\smart_auth\\intermediates\\merged_res\\release\\drawable-watch-v20\\common_google_signin_btn_text_dark_normal.xml",
+        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\f8964c4b9b5901313a0aecbca632750e\\transformed\\jetified-play-services-auth-20.4.0\\res\\drawable-watch-v20\\common_google_signin_btn_text_dark_normal.xml"
     }
 ]

@@ -41,7 +41,7 @@ class _SeventhPageState extends State<SeventhPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('ขั้นตอนที่ 7: โรคประจำตัวของคุณ'),
+        title: Text('ขั้นตอนที่ 7: โรคประจำตัว'),
         backgroundColor: Colors.green,
       ),
       body: SingleChildScrollView(
@@ -98,8 +98,11 @@ class _SeventhPageState extends State<SeventhPage> {
                       )
                       .toList(),
                 ),
+                  SizedBox(height: 370),
               Center(
+                
                 child: ElevatedButton(
+                  
                   child: Text('ต่อไป'),
                   onPressed: () {
                     Navigator.push(

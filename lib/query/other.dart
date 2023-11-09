@@ -57,7 +57,7 @@ class _EighthPageState extends State<EighthPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('ขั้นตอนที่ 8: ใส่กิจกรรมประจำวันของคุณ'),
+          title: Text('ขั้นตอนที่ 9:ใส่กิจกรรมประจำวัน'),
           backgroundColor: Colors.green,
         ),
         body: SingleChildScrollView(
@@ -133,19 +133,33 @@ class _EighthPageState extends State<EighthPage> {
                         value: 5, child: Text('ออกกำลังกายหนักมาก')),
                   ],
                 ),
-                SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: () {
-                    _addUserToFirestore();
-                    Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(
-                            builder: (BuildContext context) => TargetPage(
-                                userKey:
-                                    widget.userKey)), // navigate to TargetPage
-                        (route) => false);
-                  },
-                  child: Text('ยืนยัน'),
+                SizedBox(height: 200),
+                Center(
+                  child: ElevatedButton(
+                    onPressed: () {
+                      _addUserToFirestore();
+                      Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                              builder: (BuildContext context) => TargetPage(
+                                  userKey:
+                                      widget.userKey)), // navigate to TargetPage
+                          (route) => false);
+                    },
+                    
+                    child: Text('ยืนยัน'),
+                    style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.green),
+                    padding: MaterialStateProperty.all(
+                        EdgeInsets.symmetric(vertical: 15, horizontal: 50)),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                    ),
+                  ),
+                  ),
+                  
                 ),
                 SizedBox(height: 50),
               ],

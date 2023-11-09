@@ -4,9 +4,9 @@
     minSdkVersion="21"
     targetSdkVersion="33"
     shrinking="true"
-    mergedManifest="C:\fluttertest\live_well\build\app\intermediates\merged_manifest\release\AndroidManifest.xml"
-    proguardFiles="C:\fluttertest\live_well\build\app\intermediates\default_proguard_files\global\proguard-android.txt-7.1.2;C:\src\flutter\packages\flutter_tools\gradle\flutter_proguard_rules.pro;proguard-rules.pro"
-    partialResultsDir="C:\fluttertest\live_well\build\app\intermediates\lint_vital_partial_results\release\out">
+    mergedManifest="C:\project\PJ_01\build\app\intermediates\merged_manifest\release\AndroidManifest.xml"
+    proguardFiles="C:\project\PJ_01\build\app\intermediates\default_proguard_files\global\proguard-android.txt-7.1.2;C:\src\flutter\packages\flutter_tools\gradle\flutter_proguard_rules.pro;proguard-rules.pro"
+    partialResultsDir="C:\project\PJ_01\build\app\intermediates\lint_vital_partial_results\release\out">
   <buildFeatures
       namespacing="REQUIRED"/>
   <sourceProviders>
@@ -29,9 +29,9 @@
         value="android.app.Application" />
   </manifestPlaceholders>
   <mainArtifact
-      classOutputs="C:\fluttertest\live_well\build\app\intermediates\javac\release\classes;C:\fluttertest\live_well\build\app\tmp\kotlin-classes\release;C:\fluttertest\live_well\build\app\kotlinToolingMetadata;C:\fluttertest\live_well\build\app\intermediates\compile_and_runtime_not_namespaced_r_class_jar\release\R.jar"
+      classOutputs="C:\project\PJ_01\build\app\intermediates\javac\release\classes;C:\project\PJ_01\build\app\tmp\kotlin-classes\release;C:\project\PJ_01\build\app\kotlinToolingMetadata;C:\project\PJ_01\build\app\intermediates\compile_and_runtime_not_namespaced_r_class_jar\release\R.jar"
       applicationId="com.example.abc"
-      generatedSourceFolders="C:\fluttertest\live_well\build\app\generated\ap_generated_sources\release\out;C:\fluttertest\live_well\build\app\generated\aidl_source_output_dir\release\out;C:\fluttertest\live_well\build\app\generated\source\buildConfig\release;C:\fluttertest\live_well\build\app\generated\renderscript_source_output_dir\release\out"
-      generatedResourceFolders="C:\fluttertest\live_well\build\app\generated\res\google-services\release;C:\fluttertest\live_well\build\app\generated\res\rs\release;C:\fluttertest\live_well\build\app\generated\res\resValues\release">
+      generatedSourceFolders="C:\project\PJ_01\build\app\generated\ap_generated_sources\release\out;C:\project\PJ_01\build\app\generated\aidl_source_output_dir\release\out;C:\project\PJ_01\build\app\generated\source\buildConfig\release;C:\project\PJ_01\build\app\generated\renderscript_source_output_dir\release\out"
+      generatedResourceFolders="C:\project\PJ_01\build\app\generated\res\google-services\release;C:\project\PJ_01\build\app\generated\res\rs\release;C:\project\PJ_01\build\app\generated\res\resValues\release">
   </mainArtifact>
 </variant>

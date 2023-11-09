@@ -9,7 +9,6 @@ class SixthPage extends StatefulWidget {
   final int weight;
   final String userKey;
 
-
   SixthPage(
       {required this.age,
       required this.userKey,
@@ -30,7 +29,7 @@ class _SixthPageState extends State<SixthPage> {
     'ถั่วลิสง': false,
     'แป้งสาลีและกลูเต็น': false,
     'สัตว์น้ำเปลือกแข็ง': false,
-    'ถั่วตระกูล Tree Nuts': false,
+    'ถั่วตระกูลยืนต้น': false,
     'ผักและผลไม้': false,
   };
 
@@ -38,7 +37,7 @@ class _SixthPageState extends State<SixthPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('ขั้นตอนที่ 6: อาการแพ้อาหารของคุณ'),
+        title: Text('ขั้นตอนที่ 6: อาการแพ้อาหาร'),
         backgroundColor: Colors.green,
       ),
       body: SingleChildScrollView(
@@ -95,6 +94,7 @@ class _SixthPageState extends State<SixthPage> {
                       )
                       .toList(),
                 ),
+              SizedBox(height: 380),
               Center(
                 child: ElevatedButton(
                   child: Text('ต่อไป'),

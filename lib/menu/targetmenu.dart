@@ -58,25 +58,25 @@ class TargetMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Target Food'),
+        title: Text('ตรวจสอบความถูกต้อง'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Kcal: ${(kcal * orderQuantity).toStringAsFixed(2)}'),
-            Text('Fat: ${(fat * orderQuantity).toStringAsFixed(2)}'),
-            Text('Carb: ${(carb * orderQuantity).toStringAsFixed(2)}'),
-            Text('Pro: ${(pro * orderQuantity).toStringAsFixed(2)}'),
-            Text('Order quantity: $orderQuantity'),
+            Text('แคลอรี่: ${(kcal * orderQuantity).toStringAsFixed(2)}'),
+            Text('ไขมัน: ${(fat * orderQuantity).toStringAsFixed(2)}'),
+            Text('คาร์โบไฮเดรต: ${(carb * orderQuantity).toStringAsFixed(2)}'),
+            Text('โปรตีน: ${(pro * orderQuantity).toStringAsFixed(2)}'),
+            Text('จำนวน: $orderQuantity'),
             ElevatedButton(
-              child: Text('Submit order'),
+              child: Text('ยินยัน'),
               onPressed: () {
                 _submitOrder(context);
               },
             ),
             ElevatedButton(
-              child: Text('Cancel'),
+              child: Text('ยกเลิก'),
               style: ElevatedButton.styleFrom(
                 primary: Colors.red,
               ),

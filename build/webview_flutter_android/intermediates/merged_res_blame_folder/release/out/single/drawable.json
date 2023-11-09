@@ -1,18 +1,18 @@
 [
     {
-        "merged": "C:\\fluttertest\\live_well\\build\\webview_flutter_android\\intermediates\\merged_res\\release\\drawable\\notification_bg_low.xml",
-        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\dabcda68851483edc65f4d3af38ff3f1\\transformed\\core-1.6.0\\res\\drawable\\notification_bg_low.xml"
+        "merged": "C:\\project\\PJ_01\\build\\webview_flutter_android\\intermediates\\merged_res\\release\\drawable\\notification_tile_bg.xml",
+        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\6f29ad8e9f10ea3825ed2c4d0ccffdf5\\transformed\\core-1.6.0\\res\\drawable\\notification_tile_bg.xml"
     },
     {
-        "merged": "C:\\fluttertest\\live_well\\build\\webview_flutter_android\\intermediates\\merged_res\\release\\drawable\\notification_icon_background.xml",
-        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\dabcda68851483edc65f4d3af38ff3f1\\transformed\\core-1.6.0\\res\\drawable\\notification_icon_background.xml"
+        "merged": "C:\\project\\PJ_01\\build\\webview_flutter_android\\intermediates\\merged_res\\release\\drawable\\notification_bg_low.xml",
+        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\6f29ad8e9f10ea3825ed2c4d0ccffdf5\\transformed\\core-1.6.0\\res\\drawable\\notification_bg_low.xml"
     },
     {
-        "merged": "C:\\fluttertest\\live_well\\build\\webview_flutter_android\\intermediates\\merged_res\\release\\drawable\\notification_bg.xml",
-        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\dabcda68851483edc65f4d3af38ff3f1\\transformed\\core-1.6.0\\res\\drawable\\notification_bg.xml"
+        "merged": "C:\\project\\PJ_01\\build\\webview_flutter_android\\intermediates\\merged_res\\release\\drawable\\notification_icon_background.xml",
+        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\6f29ad8e9f10ea3825ed2c4d0ccffdf5\\transformed\\core-1.6.0\\res\\drawable\\notification_icon_background.xml"
     },
     {
-        "merged": "C:\\fluttertest\\live_well\\build\\webview_flutter_android\\intermediates\\merged_res\\release\\drawable\\notification_tile_bg.xml",
-        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\dabcda68851483edc65f4d3af38ff3f1\\transformed\\core-1.6.0\\res\\drawable\\notification_tile_bg.xml"
+        "merged": "C:\\project\\PJ_01\\build\\webview_flutter_android\\intermediates\\merged_res\\release\\drawable\\notification_bg.xml",
+        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\6f29ad8e9f10ea3825ed2c4d0ccffdf5\\transformed\\core-1.6.0\\res\\drawable\\notification_bg.xml"
     }
 ]

@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "C:\\project\\PJ_01\\build\\location\\intermediates\\merged_res\\release\\drawable-xxxhdpi-v4\\ic_call_answer_video_low.png",
+        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\1bb5d3aa6d7da9331a743cd2b7e86c98\\transformed\\core-1.10.1\\res\\drawable-xxxhdpi-v4\\ic_call_answer_video_low.png"
+    },
+    {
+        "merged": "C:\\project\\PJ_01\\build\\location\\intermediates\\merged_res\\release\\drawable-xxxhdpi-v4\\ic_call_answer_low.png",
+        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\1bb5d3aa6d7da9331a743cd2b7e86c98\\transformed\\core-1.10.1\\res\\drawable-xxxhdpi-v4\\ic_call_answer_low.png"
+    },
+    {
+        "merged": "C:\\project\\PJ_01\\build\\location\\intermediates\\merged_res\\release\\drawable-xxxhdpi-v4\\ic_call_decline_low.png",
+        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\1bb5d3aa6d7da9331a743cd2b7e86c98\\transformed\\core-1.10.1\\res\\drawable-xxxhdpi-v4\\ic_call_decline_low.png"
+    },
+    {
+        "merged": "C:\\project\\PJ_01\\build\\location\\intermediates\\merged_res\\release\\drawable-xxxhdpi-v4\\ic_call_decline.png",
+        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\1bb5d3aa6d7da9331a743cd2b7e86c98\\transformed\\core-1.10.1\\res\\drawable-xxxhdpi-v4\\ic_call_decline.png"
+    },
+    {
+        "merged": "C:\\project\\PJ_01\\build\\location\\intermediates\\merged_res\\release\\drawable-xxxhdpi-v4\\ic_call_answer.png",
+        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\1bb5d3aa6d7da9331a743cd2b7e86c98\\transformed\\core-1.10.1\\res\\drawable-xxxhdpi-v4\\ic_call_answer.png"
+    },
+    {
+        "merged": "C:\\project\\PJ_01\\build\\location\\intermediates\\merged_res\\release\\drawable-xxxhdpi-v4\\ic_call_answer_video.png",
+        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\1bb5d3aa6d7da9331a743cd2b7e86c98\\transformed\\core-1.10.1\\res\\drawable-xxxhdpi-v4\\ic_call_answer_video.png"
+    }
+]

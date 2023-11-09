@@ -4,6 +4,7 @@ import 'exer.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'finessHistoryPage.dart';
 import 'package:intl/intl.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 class FitnessScreen extends StatefulWidget {
   final String userKey;
@@ -18,6 +19,7 @@ class _FitnessScreenState extends State<FitnessScreen> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
+    initializeDateFormatting('th', null);
     getData(widget.userKey);
   }
 
@@ -222,6 +224,18 @@ class _FitnessScreenState extends State<FitnessScreen> {
 
   @override
   // โค้ดตัวอย่างที่แสดงส่วนของ Widget build
+  void _navigateToDatePage(BuildContext context, DateTime selectedDate) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => finessHistoryPage(
+          userKey: widget.userKey,
+          currentDateWithoutTime:
+              selectedDate, // ส่งวันที่ที่ต้องการให้แสดงข้อมูล
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -230,28 +244,41 @@ class _FitnessScreenState extends State<FitnessScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Fitness'),
+        title: Text('ออกกำลังกาย'),
         backgroundColor: Colors.green,
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: 16),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                IconButton(
-                  icon: Icon(Icons.arrow_back),
-                  onPressed: () {
-                    _navigateToHistoryPage(context);
-                  },
-                ),
-                Text(
-                  DateFormat('dd MMMM').format(DateTime.now()),
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-                SizedBox(width: 48), // สำหรับเว้นช่องว่างเทียบเท่ากับไอคอน
-              ],
+           
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      IconButton(
+                        icon: Icon(Icons.arrow_back),
+                        onPressed: () {
+                          DateTime currentDate = DateTime.now();
+                          DateTime selectedDate = currentDate
+                              .subtract(Duration(days: 1)); // ลดวันที่ 1 วัน
+                          _navigateToDatePage(context, selectedDate);
+                        },
+                      ),
+                      Text(
+                        DateFormat('dd MMMM', 'th').format(DateTime.now()),
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(
+                          width: 48), // สำหรับเว้นช่องว่างเทียบเท่ากับไอคอน
+                    ],
+                  ),
+                ],
+              ),
             ),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 16),
@@ -273,6 +300,14 @@ class _FitnessScreenState extends State<FitnessScreen> {
               ),
             ),
             SizedBox(height: 8),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                    '${NumberFormat.decimalPattern().format(exer_cal.toInt())} / '),
+                Text('${NumberFormat.decimalPattern().format(pal.toInt())}'),
+              ],
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -328,7 +363,7 @@ class _FitnessScreenState extends State<FitnessScreen> {
             context,
             MaterialPageRoute(
                 builder: (context) => calKcal(
-                    title: 'Calorie Calculator', userKey: widget.userKey)),
+                    title: 'เพิ่มจำนวนการเผาผลาญ', userKey: widget.userKey)),
           );
         },
         child: Icon(Icons.add),

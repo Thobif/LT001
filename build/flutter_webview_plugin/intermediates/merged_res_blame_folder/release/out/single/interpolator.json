@@ -1,30 +1,30 @@
 [
     {
-        "merged": "C:\\fluttertest\\live_well\\build\\flutter_webview_plugin\\intermediates\\merged_res\\release\\interpolator\\btn_checkbox_checked_mtrl_animation_interpolator_0.xml",
-        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\a205d4a2e89083f4ba25d3db7b78e21f\\transformed\\appcompat-1.1.0\\res\\interpolator\\btn_checkbox_checked_mtrl_animation_interpolator_0.xml"
+        "merged": "C:\\project\\PJ_01\\build\\flutter_webview_plugin\\intermediates\\merged_res\\release\\interpolator\\btn_checkbox_checked_mtrl_animation_interpolator_1.xml",
+        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\026cf4581e3013c4260c28ae6566a61f\\transformed\\appcompat-1.1.0\\res\\interpolator\\btn_checkbox_checked_mtrl_animation_interpolator_1.xml"
     },
     {
-        "merged": "C:\\fluttertest\\live_well\\build\\flutter_webview_plugin\\intermediates\\merged_res\\release\\interpolator\\btn_radio_to_off_mtrl_animation_interpolator_0.xml",
-        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\a205d4a2e89083f4ba25d3db7b78e21f\\transformed\\appcompat-1.1.0\\res\\interpolator\\btn_radio_to_off_mtrl_animation_interpolator_0.xml"
+        "merged": "C:\\project\\PJ_01\\build\\flutter_webview_plugin\\intermediates\\merged_res\\release\\interpolator\\fast_out_slow_in.xml",
+        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\026cf4581e3013c4260c28ae6566a61f\\transformed\\appcompat-1.1.0\\res\\interpolator\\fast_out_slow_in.xml"
     },
     {
-        "merged": "C:\\fluttertest\\live_well\\build\\flutter_webview_plugin\\intermediates\\merged_res\\release\\interpolator\\btn_checkbox_checked_mtrl_animation_interpolator_1.xml",
-        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\a205d4a2e89083f4ba25d3db7b78e21f\\transformed\\appcompat-1.1.0\\res\\interpolator\\btn_checkbox_checked_mtrl_animation_interpolator_1.xml"
+        "merged": "C:\\project\\PJ_01\\build\\flutter_webview_plugin\\intermediates\\merged_res\\release\\interpolator\\btn_checkbox_unchecked_mtrl_animation_interpolator_0.xml",
+        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\026cf4581e3013c4260c28ae6566a61f\\transformed\\appcompat-1.1.0\\res\\interpolator\\btn_checkbox_unchecked_mtrl_animation_interpolator_0.xml"
     },
     {
-        "merged": "C:\\fluttertest\\live_well\\build\\flutter_webview_plugin\\intermediates\\merged_res\\release\\interpolator\\fast_out_slow_in.xml",
-        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\a205d4a2e89083f4ba25d3db7b78e21f\\transformed\\appcompat-1.1.0\\res\\interpolator\\fast_out_slow_in.xml"
+        "merged": "C:\\project\\PJ_01\\build\\flutter_webview_plugin\\intermediates\\merged_res\\release\\interpolator\\btn_checkbox_checked_mtrl_animation_interpolator_0.xml",
+        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\026cf4581e3013c4260c28ae6566a61f\\transformed\\appcompat-1.1.0\\res\\interpolator\\btn_checkbox_checked_mtrl_animation_interpolator_0.xml"
     },
     {
-        "merged": "C:\\fluttertest\\live_well\\build\\flutter_webview_plugin\\intermediates\\merged_res\\release\\interpolator\\btn_checkbox_unchecked_mtrl_animation_interpolator_0.xml",
-        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\a205d4a2e89083f4ba25d3db7b78e21f\\transformed\\appcompat-1.1.0\\res\\interpolator\\btn_checkbox_unchecked_mtrl_animation_interpolator_0.xml"
+        "merged": "C:\\project\\PJ_01\\build\\flutter_webview_plugin\\intermediates\\merged_res\\release\\interpolator\\btn_radio_to_off_mtrl_animation_interpolator_0.xml",
+        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\026cf4581e3013c4260c28ae6566a61f\\transformed\\appcompat-1.1.0\\res\\interpolator\\btn_radio_to_off_mtrl_animation_interpolator_0.xml"
     },
     {
-        "merged": "C:\\fluttertest\\live_well\\build\\flutter_webview_plugin\\intermediates\\merged_res\\release\\interpolator\\btn_checkbox_unchecked_mtrl_animation_interpolator_1.xml",
-        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\a205d4a2e89083f4ba25d3db7b78e21f\\transformed\\appcompat-1.1.0\\res\\interpolator\\btn_checkbox_unchecked_mtrl_animation_interpolator_1.xml"
+        "merged": "C:\\project\\PJ_01\\build\\flutter_webview_plugin\\intermediates\\merged_res\\release\\interpolator\\btn_radio_to_on_mtrl_animation_interpolator_0.xml",
+        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\026cf4581e3013c4260c28ae6566a61f\\transformed\\appcompat-1.1.0\\res\\interpolator\\btn_radio_to_on_mtrl_animation_interpolator_0.xml"
     },
     {
-        "merged": "C:\\fluttertest\\live_well\\build\\flutter_webview_plugin\\intermediates\\merged_res\\release\\interpolator\\btn_radio_to_on_mtrl_animation_interpolator_0.xml",
-        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\a205d4a2e89083f4ba25d3db7b78e21f\\transformed\\appcompat-1.1.0\\res\\interpolator\\btn_radio_to_on_mtrl_animation_interpolator_0.xml"
+        "merged": "C:\\project\\PJ_01\\build\\flutter_webview_plugin\\intermediates\\merged_res\\release\\interpolator\\btn_checkbox_unchecked_mtrl_animation_interpolator_1.xml",
+        "source": "C:\\Users\\jiray\\.gradle\\caches\\transforms-3\\026cf4581e3013c4260c28ae6566a61f\\transformed\\appcompat-1.1.0\\res\\interpolator\\btn_checkbox_unchecked_mtrl_animation_interpolator_1.xml"
     }
 ]
